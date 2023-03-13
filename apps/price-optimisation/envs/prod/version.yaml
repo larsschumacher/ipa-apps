@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: price-optimisation
+  labels:
+    tags.datadoghq.com/version: 1.14.0
+spec:
+  template:
+    metadata:
+      labels:
+        tags.datadoghq.com/version: 1.14.0
+    spec:
+      containers:
+      - name: price-optimisation
+        image: larsaifora/echo-service:1.14.0

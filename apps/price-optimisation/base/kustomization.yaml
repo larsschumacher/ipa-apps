@@ -1,0 +1,20 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+commonLabels:
+  app.kubernetes.io/name: price-optimisation
+
+labels:
+- pairs:
+    tags.datadoghq.com/service: price-optimisation
+  includeSelectors: false
+  includeTemplates: true
+
+configMapGenerator:
+- name: price-optimisation
+  literals:
+  - DD_AGENT_HOST=datadog.datadog
+
+resources:
+- deployment.yaml
+- service.yaml
