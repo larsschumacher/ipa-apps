@@ -10,7 +10,6 @@ spec:
   destination:
     name: in-cluster
     namespace: ipa-dev
-    server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/larsschumacher/ipa-apps.git
     path: apps/price-optimisation/envs/dev
