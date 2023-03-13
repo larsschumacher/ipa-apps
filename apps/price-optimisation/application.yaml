@@ -1,19 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ipa
+  name: ipa-dev-price-optimisation
   namespace: argocd
   finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   destination:
     name: in-cluster
-    namespace: ipa
+    namespace: ipa-dev
+    server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/larsschumacher/ipa-apps.git
+    path: apps/price-optimisation/envs/dev
     targetRevision: HEAD
-    path: /apps
   syncPolicy:
     automated:
       prune: true
