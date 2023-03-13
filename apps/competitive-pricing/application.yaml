@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ipa-dev-competitive-pricing
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  labels:
+    app: competitive-pricing
+    env: dev
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: ipa-dev
+  source:
+    repoURL: https://github.com/larsschumacher/ipa-apps.git
+    path: apps/competitive-pricing/envs/dev
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

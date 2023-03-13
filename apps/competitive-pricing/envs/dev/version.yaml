@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: competitive-pricing
+  labels:
+    tags.datadoghq.com/version: 1.14.0
+spec:
+  template:
+    metadata:
+      labels:
+        tags.datadoghq.com/version: 1.14.0
+    spec:
+      containers:
+      - name: competitive-pricing
+        image: larsaifora/echo-service:1.14.0
