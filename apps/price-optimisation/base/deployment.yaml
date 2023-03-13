@@ -21,9 +21,8 @@ spec:
         env:
         - name: DD_AGENT_HOST
           valueFrom:
-            configMapKeyRef:
-              name: price-optimisation
-              key: DD_AGENT_HOST
+            fieldRef:
+              fieldPath: status.hostIP
         ports:
         - containerPort: 8000
           name: http
