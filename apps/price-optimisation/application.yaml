@@ -5,6 +5,9 @@ metadata:
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  labels:
+    app: price-optimisation
+    env: dev
 spec:
   project: default
   destination:
